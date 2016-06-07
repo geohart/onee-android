@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_home">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false">
+
+            <!-- welcome banner -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:background="@drawable/backrepeat"
+                android:elevation="2dp">
+
+                <ImageView
+                    android:id="@+id/banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo_350x125"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#00ffffff" />
+
+                <TextView
+                    android:id="@+id/sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold|italic"
+                    android:textSize="18sp"
+                    android:text= "@string/sub_banner"
+                    android:background="#00ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                style="@style/toplayout">
+
+                <!-- Login progress -->
+                <ProgressBar
+                    android:id="@+id/load_connection_progress"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone" />
+
+                <!-- Not Verified -->
+                <LinearLayout
+                    android:id="@+id/not_verified"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/headingtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "Verify your account:" />
+
+                    <TextView
+                        style="@style/bodytext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "Your account has not been verified. Enter your verification code to continue:" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/verify"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter verification code"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:singleLine="true"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Verify"
+                        android:onClick="verify"/>
+
+                    <TextView
+                        style="@style/link"
+                        android:id="@+id/signin_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="No verification code? Click here to receive a new one."
+                        android:clickable="true"
+                        android:onClick="resendVerification"/>
+                </LinearLayout>
+
+                <!-- No Connection -->
+                <LinearLayout
+                    android:id="@+id/no_connection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="New Connection"
+                        android:onClick="newConnection"/>
+
+                </LinearLayout>
+                <!-- Inactive Connection - waiting for their response -->
+                <LinearLayout
+                    android:id="@+id/inactive_connection_creator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/headingtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "You sent a connection request:" />
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:id="@+id/requested_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/blank_profile_bw" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:id="@+id/requested_name"
+                                style="@style/cardname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name goes here" />
+
+                            <TextView
+                                android:id="@+id/requested_email"
+                                style="@style/cardemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="email goes here" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/subtext"
+                        android:id="@+id/requested_response"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Waiting for response."/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cancel"
+                        android:onClick="endConnection"/>
+
+                </LinearLayout>
+                <!-- Inactive Connection - waiting for your response -->
+                <LinearLayout
+                    android:id="@+id/inactive_connection_buddy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/headingtext"
+                        android:id="@+id/newRequest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "Someone wants to connect." />
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:id="@+id/inactive_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/blank_profile_bw" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:id="@+id/inactive_name"
+                                style="@style/cardname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name goes here" />
+
+                            <TextView
+                                android:id="@+id/inactive_email"
+                                style="@style/cardemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="email goes here" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:text="Accept"
+                            android:onClick="acceptConnection"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:text="Ignore"
+                            android:onClick="endConnection"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!-- Multiple Inactive Connection - waiting for your response -->
+                <LinearLayout
+                    android:id="@+id/connection_request_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/headingtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "You have multiple connection requests!" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="View Requests"
+                        android:onClick="viewRequests"/>
+
+                </LinearLayout>
+                <!-- Active Connection -->
+                <LinearLayout
+                    android:id="@+id/active_connection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/headingtext"
+                        android:id="@+id/connected_yes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "You're connected:" />
+
+                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:id="@+id/active_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/blank_profile_bw" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:id="@+id/active_name"
+                                style="@style/cardname"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Name goes here" />
+
+                            <TextView
+                                android:id="@+id/active_email"
+                                style="@style/cardemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="email goes here" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--TextView
+                        android:id="@+id/connected_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text= "Status: All good" /-->
+
+                    <LinearLayout
+                        android:id="@+id/connected_button_container"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/btn_connected_yes_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:text="@string/btn_view"
+                            android:onClick="viewConnection"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp" />
+
+                        <Button
+                            android:id="@+id/btn_connected_yes_new"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/btn_new"
+                            android:onClick="newConnection"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

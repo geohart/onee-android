@@ -1,0 +1,76 @@
+<resources>
+    <!-- GLOBAL VALUES -->
+    <string name="app_name">ONEE</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_bracelet">Your ONEE</string>
+    <string name="action_logout">Log Out</string>
+    <string name="button_send">Send</string>
+    <string name="welcome_banner">Welcome to ONEE!</string>
+    <string name="sub_banner">Have your girlfriend\'s back.</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="onee_api_url">http://10.0.2.2:5000</string>
+    <string name="onee_api_authority">10.0.2.2:5000</string>
+    <string name="UUID">14cd1f0d-fbae-496d-9c60-9a55e066cf6b</string>
+    <string name="arduinoUUID">00001101-0000-1000-8000-00805F9B34FB</string>
+    <!-- HOME ACTIVITY -->
+    <!-- General -->
+    <string name="error">Whoops. Something went wrong.</string>
+    <!-- No Active Connections -->
+    <!-- Inactive Connection -->
+    <!-- Active Connection -->
+
+    <string name="connected_yes">You\'re connected to </string>
+    <string name="connected_no">No connection. Create a new connection now:</string>
+    <string name="status_good">Status: All good!</string>
+    <string name="status_bad">Status: I need help!</string>
+    <string name="status_inquiry"> wants to know how you\'re doing.</string>
+    <string name="btn_view">View Connection</string>
+    <string name="btn_new">New Connection</string>
+    <string name="btn_connect">Connect With A Friend</string>
+    <string name="btn_account">My Account</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_phone">Phone</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">Email address invalid</string>
+    <string name="error_invalid_password">Password too short</string>
+    <string name="error_incorrect_password">Password incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">Contacts permissions are needed for providing email completions.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_connection">You\'re Connected:</string>
+    <string name="title_activity_new_connection">Create a New Connection:</string>
+    <string name="title_activity_new_account">Sign Up:</string>
+    <string name="title_activity_login">Sign In:</string>
+
+    <string name="search_hint">Start typing a name or email address</string>
+    <string name="ble_not_supported">BLE is not supported</string>
+    <string name="label_data">Data:</string>
+    <string name="label_device_address">Device address:</string>
+    <string name="label_state">State:</string>
+    <string name="no_data">No data</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="title_devices">BLE Device Scan</string>
+    <string name="error_bluetooth_not_supported">Bluetooth not supported.</string>
+
+    <string name="unknown_device">Unknown device</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <!-- Menu items -->
+    <string name="menu_connect">Connect</string>
+    <string name="menu_disconnect">Disconnect</string>
+    <string name="menu_scan">Scan</string>
+    <string name="menu_stop">Stop</string>
+    <string name="title_activity_device_list">DeviceListActivity</string>
+    <string name="title_activity_bracelet_control">BraceletControlActivity</string>
+    <string name="title_activity_device_scan">DeviceScanActivity</string>
+    <string name="title_activity_device_control">DeviceControlActivity</string>
+    <string name="title_activity_bracelet">Your ONEE</string>
+</resources>

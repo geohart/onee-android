@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#9C27B0</color>
+    <color name="accent">#BA68C8</color>
+    <color name="primary_dark">#6A1B9A</color>
+    <color name="textColorHint">#424242</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <!--color name="windowBackground">#efefef</color-->
+
+    <color name="textColorPrimaryDark">#444444</color>
+    <color name="colorButtonText">#FFFFFF</color>
+    <color name="danger">#d50000</color>
+    <color name="safe">#43A047</color>
+    <!--color name="navigationBarColor">#000000</color-->
+    <!--
+    <color name="colorPrimary">#FFE373</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#171717</color>
+    <color name="primary_text_material_dark">#171717</color>-->
+    <color name="link">#BA68C8</color>
+</resources>
